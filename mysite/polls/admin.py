@@ -5,6 +5,7 @@ from .models import Choice, Question
 # Register your models here.
 
 
+
 class ChoiceInline(admin.StackedInline):
     model = Choice
     extra = 3
