@@ -5,5 +5,12 @@ from .models import Choice, Question
 # Register your models here.
 
 
+class QuestionAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {"fields": ["question_text"]}),
+        ("Date information", {"fields": ["pub_date"]}),
+    ]
+
+
 admin.site.register(Choice)
-admin.site.register(Question)
+admin.site.register(Question, QuestionAdmin)
