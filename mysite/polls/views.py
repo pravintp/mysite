@@ -1,4 +1,4 @@
-from django.shortcuts import Http404, render
+from django.shortcuts import Http404, render, HttpResponse
 
 from .models import Question
 
@@ -15,3 +15,7 @@ def detail(request, question_id):
     except Question.DoesNotExist:
         raise Http404("Question does not exist")
     return render(request, "polls/detail.html", {"question": question})
+
+
+def vote(request, question_id):
+    return HttpResponse("You're voting on question %s." % question_id)
